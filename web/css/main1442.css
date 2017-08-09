@@ -1,0 +1,653 @@
+.brands_tree, .bjqs-prev img,.bjqs-next img, .re-filters-footer {
+	display:none
+}
+.re-filters-row-4 {    
+	border-bottom: dotted 1px #CCC;
+}
+.re-filters-with-select .re-filters-clearboth:first-child {
+	border-bottom:none;
+}
+.re-filters{
+	position:absolute;
+	float:left;
+	width:230px;
+	margin:0px 80px 10px -2px;
+	padding:10px;
+	background:#f9f9f9;
+	color:#383838
+}
+#re-filters-form{
+	margin:-74px -324px
+}
+#side_left #re-filters-form{
+	margin:0
+}
+#side_left .re-filters{
+	position:static
+}
+#content .re-filters a{
+	color:#383838
+}
+.re-filters>ul>li>b{
+	font-size:16px;padding:9px 0
+}
+.re-filters-window-footer{
+	display:none
+}
+.re-filters-select{
+	display:none
+}
+.menu{
+	background:transparent
+}
+.menu a.level_opener{
+	width:15px;
+	height:11px;
+	padding-bottom:4px;
+	margin:6px 0 0 10px;
+	background:url(/static/draft.reshop.com.ua/media/images/menu-open.png) no-repeat 3px 2px
+}
+/*.menu a.level_opener:hover{
+    background: #a00000;
+}*/
+/*.menu a.level_opener.opened{
+	background:url(//185504.selcdn.ru/static/draft.reshop.com.ua/media/images/menu-open-active.png) no-repeat 2px 2px
+}*/
+
+.menu a.bold:hover{visibility:visible;display:inherit;z-index:9999;opacity:.97}
+.menu a.bold{
+
+	max-width: 70%;
+	padding-bottom:7px;
+	font:16px Arial,Helvetica,Sans-serif
+}
+.menu ul li.active>a,.menu ul li ul li.active>a,.menu ul li ul li ul li.active>a{
+	color:#000;
+	background-color:transparent;
+	font-weight:bolder
+}
+.menu li.active .triangle{
+	border-color:transparent;
+	font-weight:bolder
+}
+.menu ul a{
+	margin-left:12px;
+	font-size:17px;
+	line-height:17px
+}
+.menu ul a:hover{
+	color:#000;
+	background:0
+}
+.menu ul li:nth-child(2){
+	padding-bottom:5px
+}
+.menu ul li:nth-child(4){
+	padding-bottom:5px
+}
+.menu ul li:nth-child(6){
+	padding-bottom:5px
+}
+.menu ul li li:nth-child(2){
+	padding-bottom:0
+}
+.menu ul li li:nth-child(4){
+	padding-bottom:0
+}
+.menu ul li li:nth-child(6){
+	padding-bottom:
+}
+.menu ul li li a{
+	font-size:15px
+}
+.menu ul li ul .level_opener{
+	display:none
+}
+.menu .italic{
+	font-size:16px
+}
+#side_left{
+	margin-left:-4px;
+	width: 22%;
+}
+.side_basket{
+	width:300px
+}
+/**/
+.description>ul {
+    max-width:600px;
+}
+/* Товар */
+.submit:hover, .submit {
+    background: #a00000;
+}
+.cart_product {
+	min-height: 765px
+}
+#help_product{
+	width: 500px;
+}
+#help_product ul li {
+	font-size:14px;
+}
+#help_product h4{
+	font-size:14px;
+	margin:8px 0 -12px;
+	color:#404040
+}
+#help_product span{
+	font-weight:bolder;
+	font-size:15px;
+	color:#a00000
+}
+#help_product .obmen {
+	margin:0
+}
+#help_product .obmen span {
+	font-weight:normal;
+	font-size:14px;
+	color:#404040
+}
+#help_product li { 
+	margin-left:18px
+}
+#contents #help_product .date_dostavka strong {
+	font-size: 14px
+}
+.cakk, .bakk{
+	width: auto;
+	min-width: 550px;
+	left: 40%;
+	outline: 0 none;
+	position: fixed;
+	top: 20px;
+	z-index: 10090;
+}
+
+#content #boxbuttonsize, #content #boxbuttoninfo {
+	margin: 35px 80px;
+}
+#cakk, #bakk {
+    box-shadow:0.5px 0 2px rgba(0,0,0,0.18);
+    text-shadow:0 1px 0.5px rgba(0,0,0,0.1);
+    background:#f6f6f6;
+    padding:9px 13px;
+	border-left:3px solid #a00000;
+	border-radius:0 4px 4px 0;
+	font-size:15px;
+	color: #555;
+}
+
+#contents #tablesizeproduct table {
+    margin-top: 0;
+    text-align:center;
+    font-size:16px;
+}
+#content #tablesizeproduct table .mainsize{
+	font-weight:bolder;
+	font-size:15px
+}
+#content #tablesizeproduct table .nametable{
+	font-weight:bolder;font-size:15px;
+	background:#f0f0f0;
+	box-shadow:0 0 2px rgba(0,0,0,0.20)
+}
+#content #tablesizeproduct table tr{
+	border-left:2px solid transparent;
+	border-right:2px solid transparent
+}
+#content #tablesizeproduct table tr:hover{
+	color:#a00000;
+	background:#f1f1f1;
+	text-shadow:0 0 1px rgba(0,0,0,0.25);
+	border-left:2px solid #a00000;
+	border-right:2px solid #a00000
+}
+#content #tablesizeproduct table .nametable:hover{
+	color:#000;
+	text-shadow:none;
+	border-color:transparent
+}
+
+/**/
+/*Таблицы размеров*/
+#content table tr td,.information table tr td{
+	border:0
+}
+#content .tabs{
+	display:inline-block
+}
+#content .tabs>div{padding-top:0}
+#content .tabs ul{margin:0;padding:0}
+#content .tabs ul:after{content:"";display:block;clear:both;height:5px;background:#800000}
+#content .tabs ul li{margin:0;cursor:pointer;display:block;float:left;padding:8px 15px;background:#ebebeb;color:#707070}
+#content .tabs ul li.active,.tabs ul li.active:hover{background:#800000;color:#fff}
+#content .tabs ul li:hover{background:#a00000;color:#ebebeb}
+#content .tabs table{width:100%;max-width:580px;text-align:center;font-size:15px;float:left}
+#content .tabs table .mainsize{font-weight:bolder;font-size:15px}
+#content .tabs table .nametable{font-weight:bolder;font-size:15px;background:#f0f0f0;box-shadow:0 0 2px rgba(0,0,0,0.20)}
+#content .tabs table tr{border-left:2px solid transparent;border-right:2px solid transparent}
+#content .tabs table tr:hover{
+	color:#a00000;
+	background:#f1f1f1;
+	text-shadow:0 0 1px rgba(0,0,0,0.25);
+	border-left:2px solid #a00000;
+	border-right:2px solid #a00000
+}
+#content .tabs table .nametable:hover{color:#000;text-shadow:none;border-color:transparent}
+#content .sizehelp{top:0;margin:55px 10px;width:258px;font-size:14px;float:right}
+#content .nametablesize{height:30px;font-size:26px}
+/**/
+#menu{
+	width:100%;
+	height:50px;
+	background:#f6f6f6;
+	border-top:1px solid #ebebeb;
+	border-bottom:1px solid #ebebeb;
+	margin:0 auto;
+	margin-bottom:-10px
+}
+#main_badger{width:1240px}
+#main_badger .columnnav{
+	float:left
+}
+#main_badger .listnav{display:inline-block}
+#main_badger ul{padding:0;margin:0;list-style:none;position:relative}
+#main_badger .nav{
+	text-decoration:none;
+	color:#3b3b3b;
+	font-size:17.5px;
+	line-height:50px;
+	margin:0 42px 0 0;
+	transition:all .03s ease .08s
+}
+#main_badger h4{font-size:17px;color:#3b3b3b;margin:20px 8px 7px}
+#main_badger .listnav:hover>.nav{
+	text-shadow:0 0 .3px rgba(0,0,0,0.1);
+	color:#a80000;-webkit-transform:scale(1.05);
+	-moz-transform:scale(1.05);
+	-o-transform:scale(1.05)
+}
+#main_badger ul ul a{
+	padding:0 20px;
+	display:block;
+	text-decoration:none;
+	line-height:35px;
+	margin:0 130px 0 -12px;
+	color:#3b3b3b;
+	font-size:17px
+}
+#main_badger ul ul a:hover{
+	background:#f6f6f6;
+	text-shadow:0 1px 1px rgba(0,0,0,0.15);
+	box-shadow:0 1px 4px rgba(0,0,0,0.25);
+	color:#a80000;
+	border-radius:4px;
+	transition:none
+}
+#main_badger ul ul{
+	background:#f6f6f6;
+	opacity:0;
+	visibility:hidden;
+	transition:all .08s ease .10s;
+	position:absolute;
+	left:0;
+	top:100%;
+	z-index:9999;
+	margin-top:1px;
+	border-bottom:1px solid #ebebeb;
+}
+#main_badger .listnav:hover>ul{visibility:visible;display:inherit;z-index:9999;opacity:.97}
+#main_badger .listcolumn{float:left;width:1240px;background:#fff;padding-bottom:15px}
+#main_badger .infoback{
+	background:url(//185504.selcdn.ru/static/draft.reshop.com.ua/media/images/info111.png) no-repeat scroll 252px 11px
+}
+#main_badger .helplistcolumn{border-radius:0 0 0 7px;padding:20px;left:79%;width:230px}
+#main_badger .marginnav{margin-left:7px}
+#main_badger .helplistcolumn a{margin:0}
+#main_badger .helpnav{margin:0 0 0 286px}
+.re-dialog-button-next{display:none}
+#contents{width:960px;}
+#content{font-size:16px;background:transparent;border-radius:0;box-shadow:none}
+#content p,#content li{font-size:15px}
+#content_text p{line-height:26px;font-size:16px;text-align:justify}
+#content_text li{padding:0;font-size:16px}
+#content_text ul{margin:25px 0 15px}
+#content_text ol{margin:25px 0 15px}
+.text,.information{-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;-o-user-select:none;user-select:none}
+.information{margin:10px auto 60px;width:865px}
+.information p{line-height:26px;font-size:17px;text-align:justify}
+.information li{font-size:16px}
+.information ul{margin:10px 0}
+h1{color:#212529;font-size:31px;margin:0 0 -5px}
+h2{color:#404040;font-size:24px;margin:20px 0 -7px}
+h3{color:#404040;font-size:19px;margin:25px 0 -8px}
+h4{color:#404040;font-size:17px;margin:25px 0 -8px}
+h5{font-size:13px;margin:10px 0;color:#212121}
+#slideshow{border-style:none;margin-top:0}
+#slideshow .bjqs-markers .active-marker a{background:#a00000;border-color:#a00000}
+.parts{padding-top:20px}
+
+#way{border-radius:0;margin:-10px 0 5px}
+#way a{color:#212529;opacity:.8}
+#header{padding-top:0;width:100%}
+#body{width:100%;max-width:100%;min-width:1240px}
+.arbitrary_javascript_top{width:100%;max-width:100%;min-width:100%}
+a.contakt{border-bottom:0}
+header{margin-top:-5px;font-size:16px}
+.top{margin:-55px 0;line-height:35px;width:100%;background:#050505;float:left}
+header li{float:left;list-style-type:none}
+header ul,header .hello{width:1235px;padding:0}
+#headerlogo,#headersearch,#visitedee,#headercart{position:relative;display:inline-block;float:left}
+.picture img {
+  max-width: 100%;
+  height: auto;
+}
+header li.tel{
+	width:160px;
+	padding:0 5px;
+	opacity:.80
+}
+header li.tel a{padding:0 4px}
+header li a:hover{text-decoration:none;opacity:1}
+header li.email{
+	width:auto;padding:0 3px;
+	background:url(//185504.selcdn.ru/static/draft.reshop.com.ua/media/images/mail12.png) no-repeat scroll 0 8px;opacity:.75
+}
+header li.skype{
+	width:50px;
+	padding:0 2px;
+	background:url(/static/draft.reshop.com.ua/media/viber12.png) no-repeat scroll 0 8px;opacity:.7
+}
+#headercallback{
+	width:115px;
+	padding:0 25px;
+	background:url(//185504.selcdn.ru/static/draft.reshop.com.ua/media/images/call12.png) no-repeat scroll 0 8px;
+	opacity:.85
+}
+#headerlogin{
+	padding:0 20px;
+	float:right;
+	background:url(//185504.selcdn.ru/static/draft.reshop.com.ua/media/images/login12.png) no-repeat scroll 0 8px;opacity:.85
+}
+#headerlogin a.login{padding-right:10px}
+header span,#headercallback a,header a{opacity:.9;color:#fff;text-decoration:none}
+#headerlogin span:hover,#headercallback a:hover{opacity:100;color:#fff;text-decoration:none}
+header .hello{width:100%;height:100px;margin:60px 0 -30px}
+#headercart{padding:0 0 0 65px;float:right}
+#headercart a.catalog{color:#800000}
+.bold,.head_rub{color:#212529}
+#re-cart span{font-weight:bolder;color:#a00000;font-size:16px;padding-right:5px}
+#re-cart:hover{text-decoration:none}
+#headerlogo a.logo{
+	background-image:url(//185504.selcdn.ru/static/draft.reshop.com.ua/media/logo_draftinua.png);
+	display:inline-block;
+	background-position:center;
+	background-repeat:no-repeat;
+	height:64px;
+	width:200px;
+	-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover
+}
+.logo img {
+  max-width: 100%;
+  height: auto;
+}
+#headersearch{
+	position:absolute;margin:40px 0;
+	padding-left:140px;
+	width:350px
+}
+#headercart{
+	width:170px;
+	margin:7px 0
+}
+#visitedee {
+	width:auto;
+	margin: 17px 635px;
+	border-radius:3px;
+	position:absolute;
+	box-shadow:0 0.8px 1px rgba(0,0,0,0.28);
+	text-shadow:0 0.8px 0.8px rgba(0,0,0,0.1);
+	padding:8px 0
+	}
+#headercart{
+	text-shadow:0 0.1px 0.1px rgba(0,0,0,0.1);
+	min-height:40px;
+	background:url(http://www.heliumapplications.com/stage/meatone/production/assets/front_assets/images/50x50.png) no-repeat scroll 7px 0
+	}
+#search1{
+	border-bottom:2px solid #ebebeb;
+	color:#000;
+	padding:0 5px 5px 12px
+}
+#search1:hover{
+	border-bottom:2px solid #a00000
+}
+#search1 input[type=text]{background:transparent;border:0;font:16px Sans,Arial,Helvetica,Sans-serif}
+.search_sumbit{
+	padding:0;
+	margin:0;
+	background:url(//185504.selcdn.ru/static/draft.reshop.com.ua/media/images/search_r.png) no-repeat scroll 2px 0
+}
+.re-main-price span,.re-main-price b,.re-modification-price span,.re-modification-price b{color:#333}
+.re-main-price,.re-modification-price,a,.news-list{color:#A00}
+.fastbuy .m_link a:hover,#re-brands-tree-show:hover{
+	opacity:.99;
+	box-shadow:0 0 8px rgba(0,0,0,0.8);
+	border:0;
+	background:#212529;
+	color:#fff
+}
+.fastbuy .m_link{margin:15px 0 -17px;text-align:center}
+.fastbuy .m_link a{
+	background:#212529;
+	color:#fff;
+	border:0;
+	font:16px Sans-serif,Arial;
+	box-shadow:0 0 5px rgba(0,0,0,0.3);
+	border-radius:4px;
+	padding:7px 85px
+}
+#re-brands-tree{padding-top:26px}
+#re-brands-tree-show{
+	opacity:.9;
+	box-shadow:0 0 5px rgba(0,0,0,0.3);
+	background:#212529;
+	color:#fff;
+	border:0;
+	font-size:16px;
+	border-radius:4px;
+	padding:9px 70px
+}
+.content_bloks{
+	padding:10px 25px;
+	border:0;
+	background:#fff
+}
+.content_bloks .price span{
+	color:#3b3b3b
+}
+.content_bloks.per_row3 .price span{
+	font-size:22px
+}
+.folder1{border:1px solid #f2f2f2!important;box-shadow:none}
+.big_btn{background-color:#a00000}
+.big_btn:hover{background-color:#c02222}
+.irs-from,.irs-to,.irs-single{background:#A00}
+.irs-bar{border-top:1px solid #800;border-bottom:1px solid #800;background:#A00}
+.re-images-tr>div.active{background-color:#A00}
+.swiper-container .swiper-pagination-bullet-active{background:#a00000}
+.swiper-container .swiper-pagination-bullet-active{background:#a00000}
+.swiper-container .swiper-button-prev{
+	background:url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23A00000'%2F%3E%3C%2Fsvg%3E")
+}
+.swiper-container .swiper-button-prev:hover{
+	background:url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23FF5555'%2F%3E%3C%2Fsvg%3E")
+}
+.swiper-container .swiper-button-next{
+	background:url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23A00000'%2F%3E%3C%2Fsvg%3E")
+}
+.swiper-container .swiper-button-next:hover{
+	background:url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23FF5555'%2F%3E%3C%2Fsvg%3E")
+}
+.img_big_all{display:block;height:500px}
+.img_big_all img{max-width:500px;max-height:500px}
+
+header {font-size:15px;}
+.ivisited {color:#292929;padding: 9px 12px;}
+.ivisited:hover, #cakk:hover, #bakk:hover  {text-decoration:none;color:white;}
+#visitedee:hover, #cakk:hover, #bakk:hover  {background: #a00000;box-shadow:0 2px 9px rgba(0,0,0,0.3);}
+.description{width:1195px;margin:-20px -318px;background:#fff;padding:0 20px;border-radius:5px}
+.swiper-wrapper{padding-top:20px}
+.product_title{
+	padding-bottom:15px;
+	background-color:#f9f9f9;
+	margin:0 -315px;
+	font:29px Arial,Helvetica,Sans-serif;width:1100px
+}
+.description p{padding:20px 0}
+#re-review-block,#re-question-block{width:1180px;margin:0 -310px}
+.rebrand-title{width:1100px;float:left;margin-right:5px}
+.rebrand-div{z-index:3;margin:-5px 820px;position:absolute;float:right}
+.rebrand-div img{width:70px}
+.rebrand-hit{right:175px}
+.rebrand-action{top:90px}
+.feed_block .or-block{font-size:19px}
+.img_big_all .img_big a{display:block;font-size:0}
+.re-button-blue{
+	background-color:#a00000;
+	background:-moz-linear-gradient(top,#a00000,#a00000);
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#a00000),color-stop(100%,#a00000));
+	background:-webkit-linear-gradient(top,#a00000,#a00000);
+	background:-o-linear-gradient(top,#a00000,#a00000);
+	background:-ms-linear-gradient(top,#a00000,#a00000);
+	background:linear-gradient(top,#a00000,#a00000)
+}
+.re-button-blue:hover{
+	background:-moz-linear-gradient(top,maroon,maroon);
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,maroon),color-stop(100%,#26AEDB));
+	background:-webkit-linear-gradient(top,maroon,maroon);
+	background:-o-linear-gradient(top,maroon,maroon);
+	background:-ms-linear-gradient(top,maroon,maroon);
+	background:linear-gradient(top,maroon,maroon)
+}
+.re-button{border-width:0;border-width:0}
+.re-dialog .re-float-left .re-button{background:grey;font-size:13px;color:#fff;text-shadow:0 1px 1px #777}
+#navigation{padding-top:50px;padding-bottom:20px}
+.page-navigator a,.page-navigator span{color:#5e5e5e;font-size:23px}
+.page-navigator a:hover{color:#a00000;font-weight:600}
+.page-navigator span.active{width:21px;border-radius: 21px;background:#a00000}
+#brands{background:#f9f9f9}
+#brands ul.catalog_brands{width:1180px;margin-top:-42px;margin-bottom:30px}
+#brands ul.catalog_brands li{width:123px;position:relative;display:inline-block}
+#brands ul.catalog_brands li a{
+	opacity:.80;
+	-webkit-filter: grayscale(100%);  
+	display:inline-block;
+	background-position:left center;
+	background-repeat:no-repeat;
+	height:100px;
+	width:100px;
+	-webkit-background-size:cover;
+	-moz-background-size:cover;
+	-o-background-size:cover;
+	background-size:cover
+}
+#brands ul.catalog_brands li a:hover{transform:scale(1.05);-webkit-filter: grayscale(0);opacity:100}
+#brands ul.catalog_brands .adidas{background-image:url(/static/draft.reshop.com.ua/media/images/brands-draft/adidas.png)}
+#brands ul.catalog_brands .arena{background-image:url(/static/draft.reshop.com.ua/media/images/brands-draft/arena.png)}
+#brands ul.catalog_brands .asics{background-image:url(/static/draft.reshop.com.ua/media/images/brands-draft/asics.png)}
+#brands ul.catalog_brands .dakine{background-image:url(/static/draft.reshop.com.ua/media/images/brands-draft/dakine.png)}
+#brands ul.catalog_brands .lotto{background-image:url(/static/draft.reshop.com.ua/media/images/brands-draft/lotto.png)}
+#brands ul.catalog_brands .reebok{background-image:url(/static/draft.reshop.com.ua/media/images/brands-draft/reebok.png)}
+#brands ul.catalog_brands .saucony{background-image:url(/static/draft.reshop.com.ua/media/images/brands-draft/saucony.png)}
+#brands ul.catalog_brands .thenorthface{background-image:url(/static/draft.reshop.com.ua/media/images/north-face-1.png)}
+#brands ul.catalog_brands .allbrands{background-image:url(/static/draft.reshop.com.ua/media/images/brands-draft/all-brands.png)}
+#slideshow #brands ul.catalog_brands{margin:10px -2px}
+#slideshow{box-shadow:none;background:#f9f9f9;padding-bottom:60px}
+#footer{background:#1c1c1c}
+#footer a{color:#d4d4d4;text-decoration:none}
+footer{
+	width:1180px;
+	margin:0 15px;
+	background:#1c1c1c;
+	float:left
+}
+footer .help,.badgerstore,.partners{
+    width:233px;
+    float:left
+}
+footer .help:hover>.h_footer,.badgerstore:hover>.h_footer{color:#fff;border-bottom:2px solid #fff}
+footer .h_footer{width:145px;margin-top:0;border-bottom:2px solid #d4d4d4;font-size:17px;color:#d4d4d4;padding-bottom:5px}
+footer ul{padding:0}
+footer li{list-style-type:none}
+footer .company{font-size:13px;margin:0;width:450px;float:left}
+footer .company ul{padding:20px 0 15px}
+footer ul li a{opacity:.65;font-size:16px;line-height:30px}
+footer p{color:#d4d4d4;opacity:.60;font-size:14.5px;margin:0}
+footer ul li a:hover{opacity:.99}
+footer ul.social li{position:relative;display:inline-block;padding:0 .2em 0 0}
+footer ul.social li a{
+	display:inline-block;
+	background-position:left center;
+	background-repeat:no-repeat;
+	height:2.2em;width:2.2em;
+	-webkit-background-size:cover;
+	-moz-background-size:cover;
+	-o-background-size:cover;
+	background-size:cover
+}
+footer .partners span{
+	opacity:.8;
+	margin:0 20px;
+	background-image:url(/static/draft.reshop.com.ua/media/partdraftinua1.png);
+	display:inline-block;
+	background-position:left center;
+	background-repeat:no-repeat;
+	height:234px;width:180px;
+	-webkit-background-size:cover;
+	-moz-background-size:cover;
+	-o-background-size:cover;
+	background-size:cover
+}
+footer .fa{
+	font-size: 50px;
+}
+.pagination {
+    display: inline-block;
+}
+ul.pagination li{
+	display: inline;
+	list-style-type: none;
+}
+.pagination a {
+    border: 1px solid #ddd; /* Gray */
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+.pagination li.active a{
+    background-color: #A00;
+    color: #ddd;
+}
+.pagination a:hover:not(.active) {background-color: #ddd;}
+.pagination a:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.pagination a:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+li.prev.disabled{
+	display: none;
+}
+hr{
+	width: 100%;
+}
+footer .vk{background-image:url(/static/draft.reshop.com.ua/media/draft/icon_vk.png)}
+footer .facebook{background-image:url(/static/draft.reshop.com.ua/media/draft/icon_facebook.png)}
+footer .twitter{background-image:url(/static/draft.reshop.com.ua/media/draft/icon_twitter.png)}
+footer .google{background-image:url(/static/draft.reshop.com.ua/media/draft/icon_google_plus.png)}

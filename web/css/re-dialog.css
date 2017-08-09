@@ -1,0 +1,931 @@
+#re-paydel table.re-table-paydel,
+#re-paydel table.re-table-paydel td,
+#re-paydel table.re-table-paydel th {
+	border: none;
+	vertical-align: top;
+}
+
+#re-paydel table.re-table-paydel {
+	margin: 0;
+}
+
+#re-paydel table.re-table-paydel td img {
+	margin-top: 18px;
+}
+
+.re-left {
+	float: left;
+}
+
+.re-right {
+	float: right;
+}
+
+.re-dialog * {
+	border: 0;
+	margin: 0;
+	padding: 0;
+	font-size: 13px;
+	font-family: Arial,Tahoma,sans-serif;
+	background-repeat: no-repeat;
+}
+
+.re-dialog a {
+	text-decoration: none;
+	color: #333333;
+	border-color: #333333;
+}
+
+.re-dialog a:hover {
+	text-decoration: underline;
+}
+
+.re-dialog a.dotted {
+	border-style: dotted;
+	border-width: 0 0 1px 0;
+}
+
+.re-dialog a.dashed {
+	border-style: dashed;
+	border-width: 0 0 1px 0;
+}
+
+.re-dialog a.dotted:hover,
+.re-dialog a.dashed:hover {
+	text-decoration: none;
+	border-style: solid;
+}
+
+.re-dialog .re-float-left {
+	float: left;
+}
+
+.re-dialog .re-float-right {
+	float: right;
+}
+
+.re-dialog .re-red {
+	color: #DD0000;
+}
+
+.re-dialog .re-clear {
+	clear: both;
+}
+
+/* Overlays */
+.re-overlay {
+	position: fixed;
+	z-index: 10000;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #FFFFFF;
+	margin: 0;
+	opacity: 0.7;
+	overflow: hidden;
+	padding: 0;
+	display: none;
+}
+
+.re-login, .re-recover, .re-message, .re-callme, .re-callbuy {
+	width: 300px;
+	left: 50%;
+	margin-left: -150px;
+	outline: 0 none;
+	position: fixed;
+	top: 20px;
+	z-index: 10005;
+}
+.re-callme, .re-callbuy {
+	width: 320px;
+	margin-left: -160px;
+}
+
+.re-register, .re-cabinet {
+	width: 300px;
+	max-width: 100%;
+	left: 50%;
+	margin-left: -150px;
+	outline: 0 none;
+	position: fixed;
+	top: 20px;
+	z-index: 10005;
+}
+
+.re-orders {
+	width: 800px;
+	left: 50%;
+	margin-left: -400px;
+	outline: 0 none;
+	position: fixed;
+	top: 20px;
+	z-index: 10005;
+}
+
+.re-success,
+.re-success-erip {
+	width: 450px;
+	left: 50%;
+	margin-left: -225px;
+	outline: 0 none;
+	position: fixed;
+	top: 20px;
+	z-index: 10005;
+}
+
+.re-cart {
+	width: 900px;
+	left: 50%;
+	margin-left: -450px;
+	outline: 0 none;
+	position: fixed;
+	top: 20px;
+	z-index: 10005;
+}
+
+.re-dialog {
+	border-radius: 6px 6px 6px 6px;
+	-moz-border-radius: 6px 6px 6px 6px;
+	-webkit-border-radius: 6px 6px 6px 6px;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.45);
+	padding: 0;
+	overflow: hidden;
+	position: fixed;
+	background-color: #FFFFFF;
+	color: #222222;
+	display: none;
+	z-index: 10005;
+}
+
+#re-step-0 {
+
+}
+
+#re-step-1 {
+	display: none;
+}
+
+#re-step-2 {
+	display: none;
+}
+
+.re-dialog-titlebar {
+	background-color: #383838;
+	padding: 11px 20px 10px;
+
+}
+
+span.re-dialog-title {
+	color: #FFFFFF;
+	font-size: 16px;
+	font-weight: normal;
+}
+
+a.re-dialog-icon {
+	float: right;
+	overflow: hidden;
+	width: 21px;
+	height: 20px;
+	margin: -2px 0 0 0;
+	padding: 1px;
+}
+
+.re-icon {
+	color: #AAAAAA;
+}
+
+.re-icon:hover {
+	color: #999999;
+}
+
+.re-icon-close {
+	line-height: 22px;
+	font-size: 36px;
+}
+
+.re-icon-delete {
+	line-height: 22px;
+	font-size: 30px;
+}
+
+.re-dialog-content {
+	padding: 10px 20px 15px;
+	max-height: 450px;
+	overflow: hidden;
+}
+
+.re-form-field {
+	margin: 5px 0 10px;
+	vertical-align: middle;
+}
+
+.re-form-field a {
+	text-decoration: none;
+	border-bottom: dotted 1px #333333;
+}
+.re-form-field a:hover {
+	border-bottom: solid 1px #333333;
+	text-decoration: none;
+}
+
+.re-form-reg-field {
+	margin: 5px 0 5px 20px;
+	float: left;
+}
+
+.re-form-field label {
+	font-weight: bold;
+	padding-bottom: 2px;
+	display: block;
+}
+
+.re-dialog input[type="text"], .re-dialog input[type="email"], .re-dialog input[type="password"], .re-dialog textarea, .re-dialog select, .re-dialog .scroll-y {
+	border-radius: 3px 3px 3px 3px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) inset;
+	background-color: #FAFAFA;
+	color: #444;
+	border: 1px solid #CCCCCC;
+	font-size: 14px;
+	line-height: 16px;
+	height: 16px;
+	padding: 7px 3px 7px 7px;
+}
+
+.re-dialog select {
+	font-size: 15px;
+	height: 29px;
+	line-height: 15px;
+	padding: 4px 5px;
+	width: 243px;
+}
+
+.re-dialog textarea {
+	height: 46px;
+}
+
+.re-dialog input[type="text"]:focus, .re-dialog input[type="email"]:focus, .re-dialog input[type="password"]:focus, .re-dialog textarea:focus {
+    border-color: rgba(82, 168, 236, 0.8);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) inset, 0 0 8px rgba(82, 168, 236, 0.6);
+    outline: 0 none;
+    transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+}
+
+.re-dialog input.error[type="text"], .re-dialog input.error[type="email"]:focus, .re-dialog input.error[type="password"], .re-dialog textarea.error {
+    border-color: rgba(255, 0, 0, 0.8);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) inset, 0 0 8px rgba(255, 0, 0, 0.6);
+}
+
+.re-form-field input {
+	width: 90%;
+}
+.re-callme .re-form-field input,
+.re-callbuy .re-form-field input {
+	width: 267px;
+}
+
+.re-dialog-footerbar {
+	border-top: solid 1px #E3E3E3;
+	padding: 10px 20px;
+	background-color: #F5F5F5;
+	overflow: hidden;
+}
+
+.re-button {
+	background-color: #EEEEEE;
+	background: -moz-linear-gradient(top, #F5F5F5, #E0E0E0);
+	background: -webkit-gradient(linear, left top, left bottom,	color-stop(0%,#F5F5F5), color-stop(100%,#E0E0E0));
+	background: -webkit-linear-gradient(top, #F5F5F5, #E0E0E0);
+	background: -o-linear-gradient(top, #F5F5F5, #E0E0E0);
+	background: -ms-linear-gradient(top, #F5F5F5, #E0E0E0); 
+	background: linear-gradient(top, #F5F5F5, #E0E0E0); 
+	border-color: #CCCCCC #CCCCCC #C0C0C0;
+	border-width: 1px;
+	border-image: none;
+	border-radius: 3px 3px 3px 3px;
+	border-style: solid;
+	box-shadow: 0 1px 4px rgba(255,255,255,0.5);
+	color: #333333;
+	cursor: pointer;
+	font-size: 12px;
+	font-weight: bold;
+	height: 30px;
+	line-height: 26px;
+	padding: 1px 10px 2px;
+	text-shadow: 0 1px 1px #FFFFFF;
+	vertical-align: middle;
+}
+
+.re-button:hover {
+	background-color: #EEEEEE;
+	background: -moz-linear-gradient(top, #F0F0F0, #D5D5D5);
+	background: -webkit-gradient(linear, left top, left bottom,	color-stop(0%,#F0F0F0), color-stop(100%,#D5D5D5));
+	background: -webkit-linear-gradient(top, #F0F0F0, #D5D5D5);
+	background: -o-linear-gradient(top, #F0F0F0, #D5D5D5);
+	background: -ms-linear-gradient(top, #F0F0F0, #D5D5D5);
+	background: linear-gradient(top, #F0F0F0, #D5D5D5);
+}
+
+.re-button:active {
+	box-shadow: 0 2px 4px 0 rgba(48, 48, 48, 0.2) inset, 0 1px 4px rgba(218, 218, 218, 0.4);
+}
+
+.re-button-blue {
+	background-color: #35BDEA;
+	background: -moz-linear-gradient(top, #35C0F0, #35B8E5);
+	background: -webkit-gradient(linear, left top, left bottom,	color-stop(0%,#35C0F0), color-stop(100%,#35B8E5));
+	background: -webkit-linear-gradient(top, #35C0F0, #35B8E5);
+	background: -o-linear-gradient(top, #35C0F0, #35B8E5);
+	background: -ms-linear-gradient(top, #35C0F0, #35B8E5);
+	background: linear-gradient(top, #35C0F0, #35B8E5);
+	border-color: #12A0CF;
+	color: #FFFFFF;
+	text-shadow: 0 1px 1px #107EA3;
+}
+
+.re-button-blue:hover {
+	background: -moz-linear-gradient(top , #26B6E6, #26AEDB);
+	background: -webkit-gradient(linear, left top, left bottom,	color-stop(0%,#26B6E6), color-stop(100%,#26AEDB));
+	background: -webkit-linear-gradient(top, #26B6E6, #26AEDB);
+	background: -o-linear-gradient(top, #26B6E6, #26AEDB);
+	background: -ms-linear-gradient(top, #26B6E6, #26AEDB);
+	background: linear-gradient(top, #26B6E6, #26AEDB);
+}
+
+.re-dialog-header {
+	display: none;
+	padding: 0;
+}
+
+.re-dialog-shop-title {
+	font-size: 24px;
+	font-weight: bold;
+	color: #666666;
+	float: left;
+}
+
+.re-dialog-shop-slogan {
+	float: right;
+	padding: 6px 0 0;
+}
+
+.re-dialog-shop-slogan,
+.re-dialog-shop-slogan a {
+	color: #999999;
+	border-color: #999999;
+}
+
+.re-step-number {
+	height: 373px;
+	width: 861px;
+}
+
+.re-dialog-steps {
+	height: 30px;
+	margin: 0 -20px;
+	border-style: solid;
+	border-color: #CCCCCC;
+	border-width: 1px 0 1px 0;
+	background-color: #EEEEEE;
+	background: -moz-linear-gradient(center top , #EFEFEF, #E2E2E2);
+	background: -moz-linear-gradient(top, #EFEFEF, #E2E2E2);
+	background: -webkit-gradient(linear, left top, left bottom,	color-stop(0%,#EFEFEF), color-stop(100%,#E2E2E2));
+	background: -webkit-linear-gradient(top, #EFEFEF, #E2E2E2);
+	background: -o-linear-gradient(top, #EFEFEF, #E2E2E2);
+	background: -ms-linear-gradient(top, #EFEFEF, #E2E2E2);
+	background: linear-gradient(top, #EFEFEF, #E2E2E2);
+}
+
+.re-dialog-button-back,
+.re-dialog-button-next,
+.re-dialog-step {
+	float: left;
+	height: 30px;
+	cursor: default;
+}
+
+.re-dialog-button-next a,
+.re-dialog-button-back a {
+	font-size: 14px;
+	color: #FFFFFF;
+	width: 175px;
+	text-align: center;
+	display: block;
+	height: 23px;
+	padding: 7px 0 0 0;
+	margin: -1px;
+	position: relative;
+	text-shadow: 0 1px 1px #777777;
+	border: solid 1px #AAAAAA;
+	background-color: #AAAAAA;
+	background: -moz-linear-gradient(center top , #C2C2C2, #A8A8A8);
+	background: -moz-linear-gradient(top, #C2C2C2, #A8A8A8);
+	background: -webkit-gradient(linear, left top, left bottom,	color-stop(0%,#C2C2C2), color-stop(100%,#A8A8A8));
+	background: -webkit-linear-gradient(top, #C2C2C2, #A8A8A8);
+	background: -o-linear-gradient(top, #C2C2C2, #A8A8A8);
+	background: -ms-linear-gradient(top, #C2C2C2, #A8A8A8);
+	background: linear-gradient(top, #C2C2C2, #A8A8A8);
+}
+
+.re-dialog-button-next a:hover,
+.re-dialog-button-back a:hover {
+	text-decoration: none;
+	background: -moz-linear-gradient(center top , #B2B2B2, #989898);
+	background: -moz-linear-gradient(top, #B2B2B2, #989898);
+	background: -webkit-gradient(linear, left top, left bottom,	color-stop(0%,#B2B2B2), color-stop(100%,#989898));
+	background: -webkit-linear-gradient(top, #B2B2B2, #989898);
+	background: -o-linear-gradient(top, #B2B2B2, #989898);
+	background: -ms-linear-gradient(top, #B2B2B2, #989898);
+	background: linear-gradient(top, #B2B2B2, #989898);
+}
+
+.re-dialog-button-back a {
+	border: solid 1px transparent;
+	color: #555555;
+	text-shadow: 0 1px 1px #FFFFFF;
+	background: none;
+}
+
+.re-dialog-button-back a:hover {
+	border: solid 1px #CCCCCC;
+	border-right: solid 1px #F4F4F4;
+	background: -moz-linear-gradient(center top , #EAEAEA, #DDDDDD);
+	background: -moz-linear-gradient(top, #EAEAEA, #DDDDDD);
+	background: -webkit-gradient(linear, left top, left bottom,	color-stop(0%,#EAEAEA), color-stop(100%,#DDDDDD));
+	background: -webkit-linear-gradient(top, #EAEAEA, #DDDDDD);
+	background: -o-linear-gradient(top, #EAEAEA, #DDDDDD);
+	background: -ms-linear-gradient(top, #EAEAEA, #DDDDDD);
+	background: linear-gradient(top, #EAEAEA, #DDDDDD);
+}
+
+.re-dialog-button-back span,
+.re-dialog-button-next span {
+	width: 175px;
+	text-align: center;
+	display: block;
+	margin: 7px 0 0 0;
+}
+
+.re-dialog-step-active {
+	background-color: #FFFFFF;
+}
+
+.re-dialog-step span {
+	width: 170px;
+	text-align: center;
+	display: block;
+	margin: 7px 0 0 0;
+}
+
+.re-dialog-separator {
+	border-right: 1px solid #CCCCCC;
+	border-left: 1px solid #F4F4F4;
+	float: left;
+	height: 30px;
+	width: 0;
+}
+
+.re-dialog-triangle-gr-wh {
+	background-image: url('/media/system/images/re-triangle-gr-wh.png');
+	float: left;
+	height: 30px;
+	width: 18px;
+}
+
+.re-dialog-triangle-wh-gr {
+	background-image: url('/media/system/images/re-triangle-wh-gr.png');
+	float: left;
+	height: 30px;
+	width: 18px;
+}
+
+.re-dialog-triangle-gr-gr {
+	background-image: url('/media/system/images/re-triangle-gr-gr.png');
+	float: left;
+	height: 30px;
+	width: 18px;
+}
+
+.re-dialog-icon-next {
+	border-bottom: 6px solid transparent;
+	border-left: 6px solid #FFFFFF;
+	border-top: 6px solid transparent;
+	float: left;
+	height: 0;
+	position: absolute;
+	right: 48px;
+	top: 9px;
+	width: 0;
+}
+
+.re-dialog-icon-back {
+	border-bottom: 5px solid transparent;
+	border-right: 5px solid #555555;
+	border-top: 5px solid transparent;
+	float: left;
+	height: 0;
+	position: absolute;
+	left: 50px;
+	top: 10px;
+	width: 0;
+}
+
+.re-dialog-thead {
+	margin: 20px 0 0 0;
+}
+
+.re-dialog-tbody {
+	margin: 0 0 -1px 0;
+	max-height: 246px;
+	overflow-y: scroll;
+}
+
+.re-dialog-tfoot {
+	margin: 0 0 5px 0;
+}
+
+.re-dialog-thead table,
+.re-dialog-tfoot table {
+	border: 1px solid #DDDDDD;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+}
+
+.re-dialog-thead td,
+.re-dialog-tfoot td {
+	height: 30px;
+	vertical-align: middle;
+	font-size: 14px;
+	padding: 0 10px;
+}
+
+.re-dialog-tbody table {
+	border-left: 1px solid transparent;
+	border-right: 1px solid transparent;
+}
+
+.re-dialog-tbody td {
+	height: 60px;
+	vertical-align: middle;
+	font-size: 14px;
+	padding: 10px;
+	border-bottom: 1px solid #DDDDDD;
+}
+
+.re-dialog-tbody a {
+	font-size: 14px;
+}
+
+.re-dialog-thead td.re-photo,
+.re-dialog-tbody td.re-photo {
+	width: 60px;
+}
+
+.re-dialog-thead td.re-title {
+
+}
+
+.re-dialog-thead td.re-price,
+.re-dialog-tbody td.re-price {
+	width: 120px;
+}
+
+.re-dialog-thead td.re-count,
+.re-dialog-tbody td.re-count {
+	width: 100px;
+}
+
+.re-dialog-thead td.re-sum,
+.re-dialog-tbody td.re-sum {
+	width: 120px;
+}
+
+.re-dialog-thead td.re-empty {
+	width: 43px;
+}
+
+.re-dialog-tbody td.re-title {
+
+}
+
+.re-dialog-tbody td.re-delete {
+	width: 25px;
+}
+
+.re-dialog-tfoot td.re-total {
+	text-align: right;
+	color: #999999;
+}
+
+.re-dialog-tfoot td.re-total-price {
+	width: 183px;
+}
+
+
+.re-dialog-tbody td.re-photo {
+	text-align: center;
+}
+
+.re-dialog-tbody td.re-photo img {
+	max-width: 60px;
+	max-height: 60px;
+}
+
+.re-dialog-tbody span.unit {
+	border-bottom: 1px dotted #222222;
+	cursor: help;
+}
+
+.re-count-stock {
+	font-size: 10px;
+	line-height: 15px;
+	margin-bottom: -15px;
+}
+
+.re-dialog-del-pay {
+	margin: 20px 0 0 0;
+	padding: 0 28px;
+}
+
+.re-dialog-contacts {
+	margin: 20px 0 0 0;
+	padding: 0 28px;
+}
+
+.re-dialog-h2 {
+	font-size: 20px;
+	border-bottom: dashed 1px #CCCCCC;
+	padding: 0 0 5px 0;
+	margin: 0 0 15px 0;
+}
+
+.re-dialog-h3 {
+	font-size: 16px;
+	font-weight: bold;
+	margin: 15px 0 0 0;
+}
+
+.re-dialog-h4 {
+	font-size: 13px;
+	font-weight: bold;
+}
+
+.re-dialog-p {
+	font-size: 14px;
+	margin: 10px 0;
+}
+
+.re-dialog-p-adr {
+	font-size: 13px;
+	margin: 5px 0;
+	max-height: 33px;
+	overflow: hidden;
+}
+
+.re-dialog-p-note {
+	font-size: 13px;
+	font-style: italic;
+	margin: 5px 0;
+	max-height: 50px;
+	overflow: hidden;
+}
+
+.re-dialog-p span {
+	font-size: 14px;
+	font-style: italic;
+}
+
+.re-contact-field {
+	margin: 5px 0 0 0;
+}
+
+.re-contact-field label {
+	display: block;
+	float: left;
+	margin: 6px 0 0;
+	padding-bottom: 2px;
+	width: 120px;
+}
+
+.re-dialog .re-contact-field input {
+	padding: 6px 5px 5px;
+	width: 232px;
+}
+
+.re-dialog .re-contact-field textarea {
+	width: 232px;
+}
+
+.re-dialog-half {
+	float: left;
+	width: 430px;
+}
+
+.re-dialog-pay-l {
+	float: left;
+	width: 439px;
+}
+
+.re-dialog-pay-r {
+	float: left;
+	width: 364px;
+}
+
+.re-dialog-guarantee {
+	background-image: url('/media/system/images/re-icon-locked.png');
+	background-position: 15px 12px;
+	margin: 15px 0 0;
+	padding: 15px 15px 15px 50px;
+	font-size: 15px;
+	color: #777777;
+	cursor: default;
+	background-color: #FAFAFA;
+	border: dashed 1px #CCCCCC;
+}
+
+.re-dialog-result {
+	margin: 20px 0 0 0;
+	float: left;
+	width: 420px;
+}
+
+.re-dialog-result-r {
+	margin: 20px 0 0 0;
+	float: left;
+	width: 400px;
+	padding-left: 40px;
+}
+
+.re-dialog-res-thead {
+	margin: 10px 0 0 0;
+}
+
+.re-dialog-res-tbody {
+	margin: 0 0 -1px 0;
+	max-height: 207px;
+	overflow-y: scroll;
+}
+
+.re-dialog-res-tfoot {
+	margin: 0 0 5px 0;
+}
+
+.re-dialog-res-thead table,
+.re-dialog-res-tfoot table {
+	border: 1px solid #DDDDDD;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.05););
+}
+
+.re-dialog-res-thead td,
+.re-dialog-res-tfoot td {
+	height: 30px;
+	vertical-align: middle;
+	font-size: 13px;
+	padding: 0 10px;
+}
+
+.re-dialog-res-tbody table {
+	border-left: 1px solid transparent;
+	border-right: 1px solid transparent;
+}
+
+.re-dialog-res-tbody td {
+	height: 30px;
+	vertical-align: middle;
+	font-size: 13px;
+	padding: 10px;
+	border-bottom: 1px solid #DDDDDD;
+}
+
+.re-dialog-res-tbody a {
+	font-size: 13px;
+}
+
+.re-dialog-res-thead td.re-count,
+.re-dialog-res-tbody td.re-count {
+	width: 45px;
+}
+
+.re-dialog-res-thead td.re-sum {
+	width: 100px;
+}
+
+.re-dialog-res-tbody td.re-sum {
+	width: 82px;
+}
+
+.re-dialog-res-tfoot td.re-total {
+	text-align: right;
+	color: #999999;
+}
+
+.re-dialog-res-tfoot td.re-total-price {
+	width: 100px;
+}
+
+
+
+.re-dialog-weight {
+	margin: 10px -55px -5px 0;
+}
+
+.re-dialog-weight div,
+.re-dialog-weight span,
+.re-dialog-weight b {
+	font-size: 11px;
+}
+
+
+
+.re-customer-orders th {
+	background: #555;
+	color: #fff;
+	font-size: 15px;
+	font-weight: normal;
+	line-height: 17px;
+	padding: 5px 10px;
+	text-align: left;
+}
+.re-customer-orders>tbody>tr>td {
+	padding: 10px;
+}
+.re-customer-orders .re-dark {
+	background: #eee;
+}
+.re-customer-orders .re-line>td {
+	border-bottom: 1px solid #ddd;
+}
+
+.re-customer-orders table {
+	background: #ffe;
+	border: 1px dashed #888;
+	display: none;
+	margin-bottom: 10px;
+}
+.re-customer-orders table td {
+	padding: 5px 10px;
+	line-height: 13px;
+}
+
+.re-customer-orders .re-nowrap {
+	white-space: nowrap;
+}
+
+.re-dialog a.re-order-link {
+	color: #009adb;
+	line-height: 13px;
+	border-bottom: dashed 1px;
+	text-decoration: none;
+}
+.re-dialog a.re-order-link:hover {
+	border-bottom-style: solid;
+}
+.re-dialog a.re-order-green {
+	color: #24ab02;
+}
+.re-dialog .re-order-prodlink {
+	border-bottom: dotted 1px;
+	text-decoration: none;
+}
+.re-dialog .re-order-prodlink:hover {
+	border-bottom-style: solid;
+	text-decoration: none;
+}
+
+.re-orders-legend {
+	float: left;
+	padding: 3px 0 0;
+}
+.re-orders-legend div {
+	line-height: 15px;
+	background-position: 10px 7px;
+	background-repeat: no-repeat;
+	float: left;
+	padding: 5px 10px 5px 25px;
+}
+.re-orders-green {
+	background-image: url("/admin/media/images/button-green.png");
+}
+.re-orders-orange {
+	background-image: url("/admin/media/images/button-orange.png");
+}
+.re-orders-violet {
+	background-image: url("/admin/media/images/button-violet.png");
+}
+.re-orders-blue {
+	background-image: url("/admin/media/images/button-blue.png");
+}
+.re-orders-gray {
+	background-image: url("/admin/media/images/button-gray.png");
+}
+
+.re-no-myorders {
+	padding: 30px;
+	font-size: 18px;
+}
+.re-no-myorders a {
+	font-size: 18px;
+	text-decoration: underline;
+}
+.re-no-myorders a:hover {
+	text-decoration: none;
+}
