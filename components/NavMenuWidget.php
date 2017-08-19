@@ -102,7 +102,7 @@ class NavMenuWidget extends  Widget{
             $this->menuHtml = $this->menuHtml.$start_none.'<h2>Спорт<i class="fa fa-angle-down" aria-hidden="true" style="display: inline;float: right;"></i></h2>'.$start_2_none.$text.$end;
 
         }
-        return $this->menuHtml.'<li style="display: inline-block;vertical-align:top;text-align: center;width:100%;margin:0px;padding:0px;"><a class="current_list" href="/" title="Очистить фильтры"><h4>Очистить фильтры</h4></a></ul></li>';
+        return $this->menuHtml;
     }
 
     protected function getTree(){

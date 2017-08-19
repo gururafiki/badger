@@ -83,7 +83,19 @@ $this->title='Products';
     <?php endif;?>
     <div id="side_left" class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
         <div class="menu container" style="font-size: 12px;line-height:7px">
-            <ul><?= \app\components\NavMenuWidget::widget(['tpl' => 'navmenu','url' => Url::to('') ])?></ul>
+            <ul><?= \app\components\NavMenuWidget::widget(['tpl' => 'navmenu','url' => Url::to('') ])?>
+                    <li>
+                        <ul style="width:100%;display: inline-flex;">
+                            <li style="display: inline-block;vertical-align:top;text-align: center;width:100%;margin:0px;padding:0px;">
+                                <a class="current_list" href="/" title="Очистить фильтры"><h4>Очистить фильтры</h4></a>
+                            </li>
+                            <li style="display: inline-block;vertical-align:top;text-align: center;width:100%;margin:0px;padding:0px;">
+                               <a class="current_list" href="<?=str_replace('advanced', 'category',  Url::to(''))?>"><h4>Перейти к обычному меню</ h4>  </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </ul>
 <!--            <ul>--><?//= \app\components\MenuWidget::widget(['tpl' => 'menu','url' => Url::to('') ])?><!--</ul>-->
         </div>
 <!--        <div class="side_basket hidden-sm hidden-xs">-->
