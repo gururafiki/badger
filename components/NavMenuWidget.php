@@ -7,7 +7,7 @@ use app\models\Category;
 use app\models\Product;
 
 
-class MenuWidget extends  Widget{
+class NavMenuWidget extends  Widget{
 
     public $tpl;
     public $data;
@@ -17,27 +17,30 @@ class MenuWidget extends  Widget{
     public function init(){
         parent::init();
         if( $this->tpl === null){
-            $this->tpl='menu';
+            $this->tpl='navmenu';
         }
         $this->tpl.='.php';
     }
     public function run(){
-        $start='<li><a class="bold level_opener" href="#" style="float:left;">';
+        $start='<div class="clear"></div><hr><li style="list-style: none;width:100%;margin: 0px;"><a class="col-lg-2 bold level_opener opened" href="#" style="width:15%;float:left;">';
         $start_2='</a>
-            <div class="clear"></div>
-            <ul style="display:none;">';
+            <ul class="col-lg-8" style="display:inline-flex;width:83%">';
         $end='</ul></li>';
+        $start_none='<div class="clear"></div><hr><li style="list-style: none;width:100%;margin: 0px;"><a class=" col-lg-2 bold level_opener opened" href="#" style="width:15%;float:left;">';
+        $start_2_none='</a>
+            <ul class="col-lg-8" style="display:inline-flex;width:83%">';
         $arr=explode('/',$this->url);
         $url_str=$this->url;
-        if($arr[1]!='category'){
+        if($arr[1]!='advanced'){
             for($i=0;$i<=8;$i++){
                 $arr[$i]='0';
             }
         }
         else{
-            $start_current='<li><a class="current_list" href="/category';
-            $end_current='</a></li>';
-            $this->menuHtml='<li><a class="bold level_opener" href="#" style="float:left;"><h2>Выбраные фильтры<i class="fa fa-angle-down" aria-hidden="true" style="display: inline;float: right;"></i></h2></a><ul>';
+            $start_current='<li style="display: inline-block;vertical-align:top;text-align: center;width:100%;margin:0px;padding:0px;"><a style="width: 100%;" class="current_list" href="/advanced';
+            $end_current='</a>';
+            $this->menuHtml='<li style="width:100%;margin:0px;padding:0px;"><a class="bold level_opener opened" href="#" style="width:100%;float:left;"><h2>Скрыть меню</h2></a><ul style="width:100%;">';
+            $this->menuHtml.='<li style="width:100%;margin:0px;padding:0px;"><a class="bold level_opener opened" href="#" style="width:15%;float:left;"><h2>Убрать :</h2></a><ul style="width:83%;display: inline-flex;">';
             for($i=2;$i<=7;$i++){
                 if($arr[$i]!=0){
                     $name_cat=Category::findOne(['id'=>$arr[$i]]);
@@ -51,50 +54,55 @@ class MenuWidget extends  Widget{
                     $this->menuHtml.='" title="Убрать '.$name_cat->name.'">'.$name_cat->name.$end_current;
                 }
             }
-            $this->menuHtml.='<li><a class="current_list" href="/';
+            $this->menuHtml.='<li style="display: inline-block;vertical-align:top;text-align: center;width:100%;margin:0px;padding:0px;"><a class="current_list" href="/';
             $this->menuHtml.='" title="Убрать все фильтры">Убрать все фильтры'.$end_current;
-            $this->menuHtml.='<li><a class="short_rule">* Нажмите,что бы убрать категорию</a></li></ul></li>';
+            $this->menuHtml.='</ul></li>';
         }
         //бренды
         $this->data = Category::find()->indexBy('id')->where(['describtion' => 'producer'])->asArray()->all();
         //print_r($this->data);
         $this->tree = $this->getTree();
-        $text=$this->getMenuHtml($this->tree,$arr[2],$arr[3],$arr[4],'pro',$arr[6],$arr[7],$arr[8],$arr[5]);
-        $this->menuHtml = $this->menuHtml.'<li><a class="bold level_opener opened" href="#" style="float:left;">'.'<h2>Бренды<i class="fa fa-angle-down" aria-hidden="true" style="display: inline;float: right;"></i></h2>'.$start_2.$text.$end;
+        $text=$this->getMenuHtml($this->tree,$arr[2],$arr[3],$arr[4],'pro',$arr[6],$arr[7],$arr[8],$arr);
+        $this->menuHtml = $this->menuHtml.$start.'<h2>Бренды<i class="fa fa-angle-down" aria-hidden="true" style="display: inline;float: right;"></i></h2>'.'</a>
+            <ul class="col-lg-8" style="display:inline-flex;width:82%">'.$text.$end;
         //пол
         $this->data = Category::find()->indexBy('id')->where(['describtion' => 'gender'])->asArray()->all();
         $this->tree = $this->getTree();
-        $text=$this->getMenuHtml($this->tree,$arr[2],$arr[3],'gen',$arr[5],$arr[6],$arr[7],$arr[8],$arr[4]);
+        $text=$this->getMenuHtml($this->tree,$arr[2],$arr[3],'gen',$arr[5],$arr[6],$arr[7],$arr[8],$arr,1);
         if(strlen($text)>50)
             $this->menuHtml = $this->menuHtml.$start.'<h2>Пол<i class="fa fa-angle-down" aria-hidden="true" style="display: inline;float: right;"></i></h2>'.$start_2.$text.$end;
         //типы
         $this->data = Category::find()->indexBy('id')->where(['describtion' => ['type','sub_type']])->asArray()->all();
         $this->tree = $this->getTree();
-        $text=$this->getMenuHtml($this->tree,$arr[2],$arr[3],$arr[4],$arr[5],$arr[6],'type',$arr[8],$arr[7]);
+        if(isset($arr[7]))
+            $arr[]=$current_cat=Category::findOne(['id'=>$arr[7]])->parent_id;
+        if(isset($arr[6]))
+            $arr[]=$current_cat=Category::findOne(['id'=>$arr[6]])->parent_id;
+        $text=$this->getMenuHtml($this->tree,$arr[2],$arr[3],$arr[4],$arr[5],$arr[6],'type',$arr[8],$arr,1);
         if(strlen($text)>50)
             $this->menuHtml = $this->menuHtml.$start.'<h2>Тип<i class="fa fa-angle-down" aria-hidden="true" style="display: inline;float: right;"></i></h2>'.$start_2.$text.$end;
         if($arr[7]!=0){
             //sizes
             $this->data = Category::find()->indexBy('id')->where(['describtion' => ['size', 'size_shoes','size_cloth']])->asArray()->all();
             $this->tree = $this->getTree();
-            $text=$this->getMenuHtml($this->tree,$arr[2],$arr[3],$arr[4],$arr[5],'size',$arr[7],$arr[8],$arr[6]);
+            $text=$this->getMenuHtml($this->tree,$arr[2],$arr[3],$arr[4],$arr[5],'size',$arr[7],$arr[8],$arr,1);
             if(strlen($text)>50)
-                $this->menuHtml = $this->menuHtml.$start.'<h2>Размеры<i class="fa fa-angle-down" aria-hidden="true" style="display: inline;float: right;"></i></h2>'.$start_2.$text.$end;
+                $this->menuHtml = $this->menuHtml.$start_none.'<h2>Размеры<i class="fa fa-angle-down" aria-hidden="true" style="display: inline;float: right;"></i></h2>'.$start_2_none.$text.$end;
             //collection
             $this->data = Category::find()->indexBy('id')->where(['describtion' => 'brand'])->asArray()->all();
             $this->tree = $this->getTree();
-            $text=$this->getMenuHtml($this->tree,'col',$arr[3],$arr[4],$arr[5],$arr[6],$arr[7],$arr[8],$arr[2]);
+            $text=$this->getMenuHtml($this->tree,'col',$arr[3],$arr[4],$arr[5],$arr[6],$arr[7],$arr[8],$arr,1);
             if(strlen($text)>50)
-            $this->menuHtml = $this->menuHtml.$start.'<h2>Коллекция<i class="fa fa-angle-down" aria-hidden="true" style="display: inline;float: right;"></i></h2>'.$start_2.$text.$end;
+            $this->menuHtml = $this->menuHtml.$start_none.'<h2>Коллекция<i class="fa fa-angle-down" aria-hidden="true" style="display: inline;float: right;"></i></h2>'.$start_2_none.$text.$end;
             //sport
             $this->data = Category::find()->indexBy('id')->where(['describtion' => 'sport'])->asArray()->all();
             $this->tree = $this->getTree();
-            $text=$this->getMenuHtml($this->tree,$arr[2],'spo',$arr[4],$arr[5],$arr[6],$arr[7],$arr[8],$arr[3]);
+            $text=$this->getMenuHtml($this->tree,$arr[2],'spo',$arr[4],$arr[5],$arr[6],$arr[7],$arr[8],$arr,1);
             if(strlen($text)>50)
-            $this->menuHtml = $this->menuHtml.$start.'<h2>Спорт<i class="fa fa-angle-down" aria-hidden="true" style="display: inline;float: right;"></i></h2>'.$start_2.$text.$end;
+            $this->menuHtml = $this->menuHtml.$start_none.'<h2>Спорт<i class="fa fa-angle-down" aria-hidden="true" style="display: inline;float: right;"></i></h2>'.$start_2_none.$text.$end;
 
         }
-        return $this->menuHtml;
+        return $this->menuHtml.'<li style="display: inline-block;vertical-align:top;text-align: center;width:100%;margin:0px;padding:0px;"><a class="current_list" href="/" title="Очистить фильтры"><h4>Очистить фильтры</h4></a></ul></li>';
     }
 
     protected function getTree(){
@@ -110,7 +118,7 @@ class MenuWidget extends  Widget{
         return $tree;
     }
 
-    public function getMenuHtml($tree,$col,$spo,$gen,$brand,$size,$type,$byprice,$current){
+    public function getMenuHtml($tree,$col,$spo,$gen,$brand,$size,$type,$byprice,$current,$i=0,$end_ul='',$count_row=1,$visability=false){
         $str='';
         foreach ($tree as $category){
             if(!isset($category['childs'])){
@@ -169,20 +177,42 @@ class MenuWidget extends  Widget{
 
                     $count=Product::find()->where($where)->count();
                     if($count>0){
-                        $str.=$this->catToTemplate($category,$col,$spo,$gen,$brand,$size,$type,$byprice,$count,$current);
+                        if($i!=0){
+                            $i++;
+                        }
+                        $str.=$this->catToTemplate($category,$col,$spo,$gen,$brand,$size,$type,$byprice,$count,$current,$i,$end_ul,$count_row,$visability);
                     }
                 }
             }
             else{
-                $current_cat=Category::findOne(['id'=>$current]);
-                $buf = $this->catToTemplate($category,$col,$spo,$gen,$brand,$size,$type,$byprice,$count,$current_cat->parent_id);
-                if(strlen($buf)>500)
-                    $str.=$buf;
+                if($i!=0){
+                    $i++;
+                }
+                $buf = $this->catToTemplate($category,$col,$spo,$gen,$brand,$size,$type,$byprice,$count,$current,$i,$end_ul,$count_row,$visability);
+                if(substr_count($buf,'</li>')>=2) {
+                    $flag_current=false;
+                    foreach ($current as $now){
+                        if($category['id']==$now){
+                            $flag_current=true;
+                        }
+                    }
+                    if($flag_current) {
+                        $end_ul = $buf;
+                    }
+                    else {
+                        $visability=false;
+                        $str .= $buf;
+                    }
+                }
             }
         }
+        if($end_ul!=1 && ((($i-1)%4!=0 && isset($category['childs']) && $type==='type') || (($i-3)%4!=0 && isset($category['childs']) && $size==='size') ))
+            $str.='</ul><ul style="display:inline-flex;width:100%;">'.$end_ul.'</ul>';
+        else
+            $str.='<ul style="display:inline-flex;width:100%;">'.$end_ul.'</ul>';
         return $str;
     }
-    protected function catToTemplate($category,$col,$spo,$gen,$brand,$size,$type,$byprice,$count,$current){
+    protected function catToTemplate($category,$col,$spo,$gen,$brand,$size,$type,$byprice,$count,$current,$i,$end_ul,$count_row,$visability){
         ob_start();
         include __DIR__.'/menu_tpl/'.$this->tpl;
         return ob_get_clean();

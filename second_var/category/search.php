@@ -1,9 +1,10 @@
 <?php
+
 use yii\helpers\Html;
 use yii\helpers\Url;
 $this->title='Products';
-?>
 
+?>
 <div id="menu" class="row-fluid hidden-sm hidden-xs">
     <div id="main_badger">
         <ul>
@@ -30,105 +31,40 @@ $this->title='Products';
         </ul>
     </div>
 </div>
-
-    <?php if(!empty($selected) ): ?>
-        <ul class="way col-lg-12 col-sm-12 col-md-12 col-xs-12 hidden-sm hidden-xs" itemscope="" itemtype="http://schema.org/BreadcrumbList">
-            <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-                <a class="way-home" itemprop="item" href="/">
-                    <i class="fa fa-home" aria-hidden="true" alt="На главную магазина Asteamco" title="На главную магазина Asteamco"></i>
-                    <meta itemprop="name" content="На главную магазина Asteamco">
-                </a>
-                <meta itemprop="position" content="1">
-            </li>
-                <?php foreach ($selected as $category): ?>
-                    <li><i class="fa fa-angle-right" aria-hidden="true"></i></li>
-                    <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-                            <?php 
-                                if($category->describtion=='sub_type' ){
-                                    $sub_type_name=' / '.$category->name;
-                                    $href='/category/0/0/0/0/0/'.$category->id.'/0';
-                                    // $href='/category/$col/$spo/$gen/$brand/$size/$type/$byprice';
-                                }
-                                elseif($category->describtion=='type'){
-                                    $type_name=$category->name;
-                                    $buf=$category->id+1;
-                                    $href='/category/0/0/0/0/0/'.$buf.'/0';
-                                }
-                                elseif($category->describtion=='gender'){
-                                    $type_name=$category->name;
-                                    $href='/category/0/0/'.$category->id.'/0/0/0/0';
-                                }
-                                elseif($category->describtion=='brand'){
-                                    $type_name=$category->name;
-                                    $href='/category/'.$category->id.'/0/0/0/0/0/0';
-                                }
-                                elseif($category->describtion=='sport'){
-                                    $type_name=$category->name;
-                                    $href='/category/0/'.$category->id.'/0/0/0/0/0';
-                                }
-                                elseif($category->describtion=='size'){
-                                    $type_name=$category->name;
-                                    $href='/category/0/0/0/0/'.$category->id.'/0/0';
-                                }
-                            ?>
-                        <a itemprop="item" href="<?=$href ?>">
-                            <span itemprop="name"><?=$category->name ?></span>                   
-                        </a>
-                        <meta itemprop="position" content="<?=$j++ ?>">
-                    </li>
-                <?php endforeach;?>
-        </ul>
-        <h2 class="row-fluid hidden-lg hidden-md">Выбраные категории</h2>
-        <ul class="selected row-fluid hidden-lg hidden-md" style="list-style: none;padding-top: 10px;">
+    <ul class="way col-lg-12 col-sm-12 col-md-12 col-xs-12" itemscope="" itemtype="http://schema.org/BreadcrumbList">
+        <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+            <a class="way-home" itemprop="item" href="https://asteamco.com.ua/">
+                <img alt="На главную магазина Asteamco" title="На главную магазина Asteamco" src="/images/home.gif">
+                <meta itemprop="name" content="На главную магазина Asteamco">
+            </a>
+            <meta itemprop="position" content="1">
+        </li>
+        <?php if(!empty($selected) ): ?>
+            <?php $j=1; ?>
             <?php foreach ($selected as $category): ?>
-                <li>
-                    <?php 
+                <li class="separator"></li>
+                <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+                    <a itemprop="item" href="https://asteamco.com.ua/catalog">
+                        <span itemprop="name"><?=$category->name ?></span>
+                        <?php 
                             if($category->describtion=='sub_type' ){
                                 $sub_type_name=' / '.$category->name;
-                                $href='/category/0/0/0/0/0/'.$category->id.'/0';
-                                // $href='/category/$col/$spo/$gen/$brand/$size/$type/$byprice';
                             }
                             elseif($category->describtion=='type'){
                                 $type_name=$category->name;
-                                $buf=$category->id+1;
-                                $href='/category/0/0/0/0/0/'.$buf.'/0';
-                            }
-                            elseif($category->describtion=='gender'){
-                                $type_name=$category->name;
-                                $href='/category/0/0/'.$category->id.'/0/0/0/0';
-                            }
-                            elseif($category->describtion=='brand'){
-                                $type_name=$category->name;
-                                $href='/category/'.$category->id.'/0/0/0/0/0/0';
-                            }
-                            elseif($category->describtion=='sport'){
-                                $type_name=$category->name;
-                                $href='/category/0/'.$category->id.'/0/0/0/0/0';
-                            }
-                            elseif($category->describtion=='size'){
-                                $type_name=$category->name;
-                                $href='/category/0/0/0/0/'.$category->id.'/0/0';
                             }
                         ?>
-                    <a itemprop="item" href="<?=$href ?>">
-                        <span itemprop="name"><?=$category->name ?></span>
                     </a>
                     <meta itemprop="position" content="<?=$j++ ?>">
                 </li>
-                <li class="separator">&nbsp;</li>
             <?php endforeach;?>
-        </ul>
-        <h4 class="hidden-lg hidden-md"></h4>
-        <div class="clear"></div>
-    <?php endif;?>
+        <?php endif;?>
+    </ul>
+    <div class="clear"></div>
 
     <div id="side_left" class="col-lg-3 col-sm-12 col-md-3 col-xs-12">
         <div class="menu">
-            <ul><?= \app\components\MenuWidget::widget(['tpl' => 'menu','url' => Url::to('') ])?>
-            <?php if(!empty($selected)):?>
-                <li><a href="<?=str_replace('category', 'advanced',  Url::to(''))?>">Перейти к расширеному меню</a></li>
-            <?php endif;?>
-            </ul>
+            <ul><?= \app\components\MenuWidget::widget(['tpl' => 'menu','url' => Url::to('') ])?></ul>
         </div>
         <div class="side_basket hidden-sm hidden-xs">
             <div class="h3">Как мы работаем?</div>
@@ -161,12 +97,10 @@ $this->title='Products';
         </div>
     </div>
 
-
     <div id="contents" class="col-lg-9 col-md-9 col-xs-12 col-sm-12">
-        <div id="content_text" >
+        <div id="content_text" class="">
             <div class="head">
-                <h1 class="left"><?=$type_name ?><?=$sub_type_name ?></h1>  
-                <?=$button ?>
+                <h1 class="left">Вы искали : <?=$q ?></h1>
                 <div class="clear"></div>
             </div>
             <div class="clear"></div>
@@ -182,14 +116,17 @@ $this->title='Products';
                         </div>
                         <div class="re-images-table none">
                             <div class="re-images-tr">
+                                <?php if(!empty($product->photo)):?>
+                                    <div class="active" data-src="<?= $product->photo ?>"></div>
+                                <?php endif;?>
                                 <?php if(!empty($product->photos)):?>
-                                    <?php $i=-1;?>
+                                    <?php $j=0;?>
                                     <?php foreach (json_decode($product->photos) as $photo => $value):?>
                                         <?php
-                                            if($i==3) break;
-                                            else $i++;
+                                            if($j==4) break;
+                                            else $j++;
                                         ?>
-                                        <?php if($photo!='_empty_' ) :?>
+                                        <?php if($photo!='_empty_') :?>
                                             <?php  $headers = get_headers($photo);?>
                                             <?php if(substr($headers[0], 9, 3)==200): ?>
                                                 <div data-src="<?= $photo ?>"></div>
@@ -217,14 +154,13 @@ $this->title='Products';
                             echo '<div class="clear"></div>';
                     }?>
                 <?php endforeach;?>
-                <div class="clear"></div>
                 <?php
                     echo \yii\widgets\LinkPager::widget([
                         'pagination' => $pages,
                     ]); 
                 ?>
             <?php else:?>
-                <h2>В данной категории пока нету товаров</h2>
+                <h2>Ничего не найдено</h2>
             <?php endif;?>
             </div>
             <div class="clear"></div>
@@ -234,4 +170,5 @@ $this->title='Products';
         <div class="clear"></div>
     </div><!--/contents-->
     
-    <div class="clear"></div> 
+    <div class="clear"></div>
+

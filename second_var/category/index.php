@@ -64,7 +64,7 @@ $this->title='Products';
             function ScaleSlider() {
                 var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
                 if (refSize) {
-                    refSize = Math.min(refSize, 2400);
+                    refSize = Math.min(refSize, 1920);
                     jssor_1_slider.$ScaleWidth(refSize);
                 }
                 else {
@@ -192,8 +192,7 @@ $this->title='Products';
 
     <div id="side_left" class="col-lg-3 col-sm-12 col-md-3 col-xs-12">
         <div class="menu">
-            <ul><?= \app\components\MenuWidget::widget(['tpl' => 'menu','url' => Url::to('') ])?>
-            </ul>
+            <ul><?= \app\components\MenuWidget::widget(['tpl' => 'menu','url' => Url::to('') ])?></ul>
         </div>
         <div class="side_basket hidden-sm hidden-xs">
             <div class="h3">Как мы работаем?</div>

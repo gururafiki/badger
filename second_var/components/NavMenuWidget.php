@@ -7,7 +7,7 @@ use app\models\Category;
 use app\models\Product;
 
 
-class MenuWidget extends  Widget{
+class NavMenuWidget extends  Widget{
 
     public $tpl;
     public $data;
@@ -17,16 +17,20 @@ class MenuWidget extends  Widget{
     public function init(){
         parent::init();
         if( $this->tpl === null){
-            $this->tpl='menu';
+            $this->tpl='navmenu';
         }
         $this->tpl.='.php';
     }
     public function run(){
-        $start='<li><a class="bold level_opener" href="#" style="float:left;">';
+        $start='<li style="width:100%"><a class="bold level_opener opened" href="#" style="width:100%;float:left;">';
         $start_2='</a>
             <div class="clear"></div>
-            <ul style="display:none;">';
+            <ul style="display:inline-flex;width:100%">';
         $end='</ul></li>';
+        $start_none='<li style="width:100%"><a class="bold level_opener opened" href="#" style="width:100%;float:left;">';
+        $start_2_none='</a>
+            <div class="clear"></div>
+            <ul style="display:inline-flex;width:100%">';
         $arr=explode('/',$this->url);
         $url_str=$this->url;
         if($arr[1]!='category'){
@@ -35,9 +39,9 @@ class MenuWidget extends  Widget{
             }
         }
         else{
-            $start_current='<li><a class="current_list" href="/category';
+            $start_current='<li style="display: inline-block;vertical-align:top;text-align: center;width:100%;margin:0px;padding:0px;"><a style="width: 100%;" class="current_list" href="/category';
             $end_current='</a></li>';
-            $this->menuHtml='<li><a class="bold level_opener" href="#" style="float:left;"><h2>Выбраные фильтры<i class="fa fa-angle-down" aria-hidden="true" style="display: inline;float: right;"></i></h2></a><ul>';
+            $this->menuHtml='<li style="width:100%"><a class="bold level_opener opened" href="#" style="width:100%;float:left;"><h2>Выбраные фильтры<i class="fa fa-angle-down" aria-hidden="true" style="float: right;"></i></h2></a><ul style="display: inline-flex;width:100%">';
             for($i=2;$i<=7;$i++){
                 if($arr[$i]!=0){
                     $name_cat=Category::findOne(['id'=>$arr[$i]]);
@@ -51,47 +55,51 @@ class MenuWidget extends  Widget{
                     $this->menuHtml.='" title="Убрать '.$name_cat->name.'">'.$name_cat->name.$end_current;
                 }
             }
-            $this->menuHtml.='<li><a class="current_list" href="/';
+            $this->menuHtml.='<li style="display: inline-block;vertical-align:top;text-align: center;width:100%;margin:0px;padding:0px;"><a class="current_list" href="/';
             $this->menuHtml.='" title="Убрать все фильтры">Убрать все фильтры'.$end_current;
-            $this->menuHtml.='<li><a class="short_rule">* Нажмите,что бы убрать категорию</a></li></ul></li>';
+            $this->menuHtml.='<li style="width:100%"><a class="short_rule">* Нажмите,что бы убрать категорию</a></li></ul></li>';
         }
         //бренды
         $this->data = Category::find()->indexBy('id')->where(['describtion' => 'producer'])->asArray()->all();
         //print_r($this->data);
         $this->tree = $this->getTree();
-        $text=$this->getMenuHtml($this->tree,$arr[2],$arr[3],$arr[4],'pro',$arr[6],$arr[7],$arr[8],$arr[5]);
-        $this->menuHtml = $this->menuHtml.'<li><a class="bold level_opener opened" href="#" style="float:left;">'.'<h2>Бренды<i class="fa fa-angle-down" aria-hidden="true" style="display: inline;float: right;"></i></h2>'.$start_2.$text.$end;
+        $text=$this->getMenuHtml($this->tree,$arr[2],$arr[3],$arr[4],'pro',$arr[6],$arr[7],$arr[8],$arr);
+        $this->menuHtml = $this->menuHtml.$start.'<h2>Бренды<i class="fa fa-angle-down" aria-hidden="true" style="display: inline;float: right;"></i></h2>'.$start_2.$text.$end;
         //пол
         $this->data = Category::find()->indexBy('id')->where(['describtion' => 'gender'])->asArray()->all();
         $this->tree = $this->getTree();
-        $text=$this->getMenuHtml($this->tree,$arr[2],$arr[3],'gen',$arr[5],$arr[6],$arr[7],$arr[8],$arr[4]);
+        $text=$this->getMenuHtml($this->tree,$arr[2],$arr[3],'gen',$arr[5],$arr[6],$arr[7],$arr[8],$arr);
         if(strlen($text)>50)
             $this->menuHtml = $this->menuHtml.$start.'<h2>Пол<i class="fa fa-angle-down" aria-hidden="true" style="display: inline;float: right;"></i></h2>'.$start_2.$text.$end;
         //типы
         $this->data = Category::find()->indexBy('id')->where(['describtion' => ['type','sub_type']])->asArray()->all();
         $this->tree = $this->getTree();
-        $text=$this->getMenuHtml($this->tree,$arr[2],$arr[3],$arr[4],$arr[5],$arr[6],'type',$arr[8],$arr[7]);
+        if(isset($arr[7]))
+            $arr[]=$current_cat=Category::findOne(['id'=>$arr[7]])->parent_id;
+        if(isset($arr[6]))
+            $arr[]=$current_cat=Category::findOne(['id'=>$arr[6]])->parent_id;
+        $text=$this->getMenuHtml($this->tree,$arr[2],$arr[3],$arr[4],$arr[5],$arr[6],'type',$arr[8],$arr,1);
         if(strlen($text)>50)
             $this->menuHtml = $this->menuHtml.$start.'<h2>Тип<i class="fa fa-angle-down" aria-hidden="true" style="display: inline;float: right;"></i></h2>'.$start_2.$text.$end;
         if($arr[7]!=0){
             //sizes
             $this->data = Category::find()->indexBy('id')->where(['describtion' => ['size', 'size_shoes','size_cloth']])->asArray()->all();
             $this->tree = $this->getTree();
-            $text=$this->getMenuHtml($this->tree,$arr[2],$arr[3],$arr[4],$arr[5],'size',$arr[7],$arr[8],$arr[6]);
+            $text=$this->getMenuHtml($this->tree,$arr[2],$arr[3],$arr[4],$arr[5],'size',$arr[7],$arr[8],$arr,1);
             if(strlen($text)>50)
-                $this->menuHtml = $this->menuHtml.$start.'<h2>Размеры<i class="fa fa-angle-down" aria-hidden="true" style="display: inline;float: right;"></i></h2>'.$start_2.$text.$end;
+                $this->menuHtml = $this->menuHtml.$start_none.'<h2>Размеры<i class="fa fa-angle-down" aria-hidden="true" style="display: inline;float: right;"></i></h2>'.$start_2_none.$text.$end;
             //collection
             $this->data = Category::find()->indexBy('id')->where(['describtion' => 'brand'])->asArray()->all();
             $this->tree = $this->getTree();
-            $text=$this->getMenuHtml($this->tree,'col',$arr[3],$arr[4],$arr[5],$arr[6],$arr[7],$arr[8],$arr[2]);
+            $text=$this->getMenuHtml($this->tree,'col',$arr[3],$arr[4],$arr[5],$arr[6],$arr[7],$arr[8],$arr,1);
             if(strlen($text)>50)
-            $this->menuHtml = $this->menuHtml.$start.'<h2>Коллекция<i class="fa fa-angle-down" aria-hidden="true" style="display: inline;float: right;"></i></h2>'.$start_2.$text.$end;
+            $this->menuHtml = $this->menuHtml.$start_none.'<h2>Коллекция<i class="fa fa-angle-down" aria-hidden="true" style="display: inline;float: right;"></i></h2>'.$start_2_none.$text.$end;
             //sport
             $this->data = Category::find()->indexBy('id')->where(['describtion' => 'sport'])->asArray()->all();
             $this->tree = $this->getTree();
-            $text=$this->getMenuHtml($this->tree,$arr[2],'spo',$arr[4],$arr[5],$arr[6],$arr[7],$arr[8],$arr[3]);
+            $text=$this->getMenuHtml($this->tree,$arr[2],'spo',$arr[4],$arr[5],$arr[6],$arr[7],$arr[8],$arr,1);
             if(strlen($text)>50)
-            $this->menuHtml = $this->menuHtml.$start.'<h2>Спорт<i class="fa fa-angle-down" aria-hidden="true" style="display: inline;float: right;"></i></h2>'.$start_2.$text.$end;
+            $this->menuHtml = $this->menuHtml.$start_none.'<h2>Спорт<i class="fa fa-angle-down" aria-hidden="true" style="display: inline;float: right;"></i></h2>'.$start_2_none.$text.$end;
 
         }
         return $this->menuHtml;
@@ -110,7 +118,7 @@ class MenuWidget extends  Widget{
         return $tree;
     }
 
-    public function getMenuHtml($tree,$col,$spo,$gen,$brand,$size,$type,$byprice,$current){
+    public function getMenuHtml($tree,$col,$spo,$gen,$brand,$size,$type,$byprice,$current,$i=0){
         $str='';
         foreach ($tree as $category){
             if(!isset($category['childs'])){
@@ -169,20 +177,31 @@ class MenuWidget extends  Widget{
 
                     $count=Product::find()->where($where)->count();
                     if($count>0){
-                        $str.=$this->catToTemplate($category,$col,$spo,$gen,$brand,$size,$type,$byprice,$count,$current);
+                        if($i!=0){
+                            $i++;
+                        }
+                        elseif($i==7){
+                            $i=1;
+                        }
+                        $str.=$this->catToTemplate($category,$col,$spo,$gen,$brand,$size,$type,$byprice,$count,$current,$i);
                     }
                 }
             }
             else{
-                $current_cat=Category::findOne(['id'=>$current]);
-                $buf = $this->catToTemplate($category,$col,$spo,$gen,$brand,$size,$type,$byprice,$count,$current_cat->parent_id);
-                if(strlen($buf)>500)
+                if($i!=0){
+                    $i++;
+                }
+                elseif($i==7){
+                    $i=1;
+                }
+                $buf = $this->catToTemplate($category,$col,$spo,$gen,$brand,$size,$type,$byprice,$count,$current,$i);
+                if(substr_count($buf,'</li>')>=2)
                     $str.=$buf;
             }
         }
         return $str;
     }
-    protected function catToTemplate($category,$col,$spo,$gen,$brand,$size,$type,$byprice,$count,$current){
+    protected function catToTemplate($category,$col,$spo,$gen,$brand,$size,$type,$byprice,$count,$current,$i){
         ob_start();
         include __DIR__.'/menu_tpl/'.$this->tpl;
         return ob_get_clean();

@@ -79,7 +79,6 @@
 	line-height:17px
 }
 .menu ul a:hover:not(.short_rule ):not(.bold):not(.current_list){
-	max-width: 100%;
 	background:#f6f6f6;
 	text-shadow:0 1px 1px rgba(0,0,0,0.15);
 	box-shadow:0 1px 4px rgba(0,0,0,0.25);
@@ -147,7 +146,7 @@ a.current_list:hover{
 	font-size:16px
 }
 #side_left{
-	margin-left:-4px;
+	margin-left: -20px;
 }
 .side_basket{
 }

@@ -2,8 +2,8 @@
 
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=gururafiki_shop',
-    'username' => 'gururafiki_admin',
-    'password' => '20041889adolfANDlucifer',
+    'dsn' => 'mysql:host=localhost;dbname=testimport',
+    'username' => 'root',
+    'password' => '',
     'charset' => 'utf8',
 ];

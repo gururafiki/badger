@@ -60,7 +60,7 @@ class MenuWidget extends  Widget{
         //print_r($this->data);
         $this->tree = $this->getTree();
         $text=$this->getMenuHtml($this->tree,$arr[2],$arr[3],$arr[4],'pro',$arr[6],$arr[7],$arr[8],$arr[5]);
-        $this->menuHtml = $this->menuHtml.'<li><a class="bold level_opener opened" href="#" style="float:left;">'.'<h2>Бренды<i class="fa fa-angle-down" aria-hidden="true" style="display: inline;float: right;"></i></h2>'.$start_2.$text.$end;
+        $this->menuHtml = $this->menuHtml.$start.'<h2>Бренды<i class="fa fa-angle-down" aria-hidden="true" style="display: inline;float: right;"></i></h2>'.$start_2.$text.$end;
         //пол
         $this->data = Category::find()->indexBy('id')->where(['describtion' => 'gender'])->asArray()->all();
         $this->tree = $this->getTree();
