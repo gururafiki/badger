@@ -10,13 +10,53 @@ $this->title='Products';
     <div id="main_badger">
         <ul>
             <?= \app\components\NavigationBar::widget(['tpl' => 'navbar','url' => Url::to('') ])?>
-            <li class="listnav">
-                <a class="nav" href="#">Новинки</a>
-            </li>
-            <li class="listnav">
-                <a class="nav" href="#">Sale</a>
-            </li>
-            <li class="listnav infoback">
+            <?php if(strpos(Url::to(''),'/page')!=false):?>
+                <?php if(strpos(Url::to(''),'/new')!=false):?>
+                    <li class="listnav">
+                        <a class="nav" href="<?=Url::to('')?>" style="color:#009adb;">Новинки</a>
+                    </li>
+                    <li class="listnav">
+                        <a class="nav" href="<?=substr(Url::to(''),0,strpos(Url::to(''),'/new')).'/sale'.substr(Url::to(''),strpos(Url::to(''),'/page'))?>">Распродажа</a>
+                    </li>
+                <?php elseif(strpos(Url::to(''),'/sale')!=false):?>
+                    <li class="listnav">
+                        <a class="nav" href="<?=substr(Url::to(''),0,strpos(Url::to(''),'/sale')).'/new'.substr(Url::to(''),strpos(Url::to(''),'/page'))?>">Новинки</a>
+                    </li>
+                    <li class="listnav">
+                        <a class="nav" href="<?=Url::to('')?>" style="color:#009adb;">Распродажа</a>
+                    </li>
+                <?php else:?>
+                    <li class="listnav">
+                        <a class="nav" href="<?=substr(Url::to(''),0,strpos(Url::to(''),'/page')-1).'/new'.substr(Url::to(''),strpos(Url::to(''),'/page'))?>">Новинки</a>
+                    </li>
+                    <li class="listnav">
+                        <a class="nav" href="<?=substr(Url::to(''),0,strpos(Url::to(''),'/page')-1).'/sale'.substr(Url::to(''),strpos(Url::to(''),'/page'))?>">Распродажа</a>
+                    </li>
+                <?php endif;?>
+            <?php else:?>
+                <?php if(strpos(Url::to(''),'/new')!=false):?>
+                    <li class="listnav">
+                        <a class="nav" href="<?=Url::to('')?>" style="color:#009adb;">Новинки</a>
+                    </li>
+                    <li class="listnav">
+                        <a class="nav" href="<?=substr(Url::to(''),0,strpos(Url::to(''),'/new')).'/sale'?>">Распродажа</a>
+                    </li>
+                <?php elseif(strpos(Url::to(''),'/sale')!=false):?>
+                    <li class="listnav">
+                        <a class="nav" href="<?=substr(Url::to(''),0,strpos(Url::to(''),'/sale')).'/new'?>">Новинки</a>
+                    </li>
+                    <li class="listnav">
+                        <a class="nav" href="<?=Url::to('')?>" style="color:#009adb;">Распродажа</a>
+                    </li>
+                <?php else:?>
+                    <li class="listnav">
+                        <a class="nav" href="<?=substr(Url::to(''),0,-2).'/new'?>">Новинки</a>
+                    </li>
+                    <li class="listnav">
+                        <a class="nav" href="<?=substr(Url::to(''),0,-2).'/sale'?>">Распродажа</a>
+                    </li>
+                <?php endif;?>
+            <?php endif;?>            <li class="listnav infoback">
                 <span class="nav helpnav">Помощь</span>
                 <ul class="listcolumn helplistcolumn">
                     <li>
@@ -36,6 +76,23 @@ $this->title='Products';
     <?php if(!empty($selected) ): ?>
         <h2 class="row-fluid hidden-lg hidden-md">Выбраные категории</h2>
         <ul class="selected row-fluid hidden-lg hidden-md" style="list-style: none;padding-top: 10px;">
+            <?php if(strpos(Url::to(''),'/new')!=false):?>
+                <li>
+                    <a itemprop="item" href="<?=$href ?>">
+                        <span itemprop="name"><?=$category->name ?></span>
+                    </a>
+                    <meta itemprop="position" content="<?=$j++ ?>">
+                </li>
+                <li class="separator">&nbsp;</li>
+            <?php elseif(strpos(Url::to(''),'/sale')!=false):?>
+                <li>
+                    <a itemprop="item" href="<?=$href ?>">
+                        <span itemprop="name"><?=$category->name ?></span>
+                    </a>
+                    <meta itemprop="position" content="<?=$j++ ?>">
+                </li>
+                <li class="separator">&nbsp;</li>
+            <?php endif;?>
             <?php foreach ($selected as $category): ?>
                 <li>
                     <?php 

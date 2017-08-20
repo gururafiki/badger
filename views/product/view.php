@@ -10,10 +10,10 @@ $this->title='Products';
         <ul>
             <?= \app\components\NavigationBar::widget(['tpl' => 'navbar','url' => Url::to('') ])?>
             <li class="listnav">
-                <a class="nav" href="#">Новинки</a>
+                <a class="nav" href="/category/0/0/0/0/0/0/0/new">Новинки</a>
             </li>
             <li class="listnav">
-                <a class="nav" href="#">Sale</a>
+                <a class="nav" href="/category/0/0/0/0/0/0/0/sale">Распродажа</a>
             </li>
             <li class="listnav infoback">
                 <span class="nav helpnav">Помощь</span>

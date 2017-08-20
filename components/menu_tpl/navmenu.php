@@ -37,10 +37,10 @@
             <div class="clear"></div>
             <?php if($flag_current):?>
                 <ul style="display:inline-flex;width:100%;">
-                    <?= $this->getMenuHtml($category['childs'],$col,$spo,$gen,$brand,$size,$type,$byprice,$current,1,1,1,true)?>
+                    <?= $this->getMenuHtml($category['childs'],$col,$spo,$gen,$brand,$size,$type,$byprice,$product_type,$current,1,1,1,true)?>
             <?php else:?>
                 <ul style="display:none;width:100%">
-                    <?= $this->getMenuHtml($category['childs'],$col,$spo,$gen,$brand,$size,$type,$byprice,$current,1,1,1,false)?>
+                    <?= $this->getMenuHtml($category['childs'],$col,$spo,$gen,$brand,$size,$type,$byprice,$product_type,$current,1,1,1,false)?>
             <?php endif;?>
             </ul>
             <?php endif;?>
@@ -53,7 +53,7 @@
                 <?php else:?>
                     <a class="btn btn-default" style="font-size: 15px;line-height:17px;width:100%;margin-left:0px;padding:5px;background-color: #009adb;color:#c4e3f3;"
                 <?php endif;?>
-                 href="/advanced/<?=$category['id'].'/0/'.$gen.'/'.$brand.'/'.$size.'/'.$type.'/'.$byprice?>#selectedcat"><?=$category['name']?> ( <?=$count?> )
+                 href="/advanced/<?=$category['id'].'/0/'.$gen.'/'.$brand.'/'.$size.'/'.$type.'/'.$byprice.'/'.$product_type?>#selectedcat"><?=$category['name']?> ( <?=$count?> )
                         </a>
             <?php endif;?>
             <?php if($spo=='spo' && $type!=0) :?>
@@ -63,7 +63,7 @@
                 <?php else:?>
                     <a class="btn btn-default" style="font-size: 15px;line-height:17px;width:100%;margin-left:0px;padding:5px;background-color: #009adb;color:#c4e3f3;"
                 <?php endif;?>
-                 href="/advanced/<?='0/'.$category['id'].'/'.$gen.'/'.$brand.'/'.$size.'/'.$type.'/'.$byprice?>#selectedcat"><?=$category['name']?> ( <?=$count?> )</a>
+                 href="/advanced/<?='0/'.$category['id'].'/'.$gen.'/'.$brand.'/'.$size.'/'.$type.'/'.$byprice.'/'.$product_type?>#selectedcat"><?=$category['name']?> ( <?=$count?> )</a>
             <?php endif;?>
             <?php if($gen=='gen') :?>
                 <?php $flag=1;?>
@@ -72,7 +72,7 @@
                 <?php else:?>
                     <a class="btn btn-default" style="font-size: 15px;line-height:17px;width:100%;margin-left:0px;padding:5px;background-color: #009adb;color:#c4e3f3;"
                 <?php endif;?>
-                 href="/advanced/<?=$col.'/'.$spo.'/'.$category['id'].'/'.$brand.'/'.$size.'/'.$type.'/'.$byprice?>#selectedcat"><?=$category['name']?> ( <?=$count?> )</a>
+                 href="/advanced/<?=$col.'/'.$spo.'/'.$category['id'].'/'.$brand.'/'.$size.'/'.$type.'/'.$byprice.'/'.$product_type?>#selectedcat"><?=$category['name']?> ( <?=$count?> )</a>
             <?php endif;?>
             <?php if($brand=='pro') :?>
                 <?php if(!$flag_current):?>
@@ -80,7 +80,7 @@
                 <?php else:?>
                     <a class="btn btn-default" style="font-size: 15px;line-height:17px;width:100%;margin-left:0px;padding:5px;background-color: #009adb;color:#c4e3f3;"
                 <?php endif;?>
-                 href="/advanced/<?=$col.'/'.$spo.'/'.$gen.'/'.$category['id'].'/0/'.$type.'/'.$byprice?>#selectedcat"><?=$category['name']?> ( <?=$count?> )</a>
+                 href="/advanced/<?=$col.'/'.$spo.'/'.$gen.'/'.$category['id'].'/0/'.$type.'/'.$byprice.'/'.$product_type?>#selectedcat"><?=$category['name']?> ( <?=$count?> )</a>
             <?php endif;?>
             <?php if($size=='size' && $type!=0) :?>
                 <?php $flag=2;?>
@@ -89,7 +89,7 @@
                 <?php else:?>
                     <a class="btn btn-default" style="font-size: 15px;line-height:17px;width:100%;margin-left:0px;padding:5px;background-color: #009adb;color:#c4e3f3;"
                 <?php endif;?>
-                 href="/advanced/<?=$col.'/'.$spo.'/'.$gen.'/0/'.$category['id'].'/'.$type.'/'.$byprice?>#selectedcat"><?=$category['name']?> ( <?=$count?> )</a>
+                 href="/advanced/<?=$col.'/'.$spo.'/'.$gen.'/0/'.$category['id'].'/'.$type.'/'.$byprice.'/'.$product_type?>#selectedcat"><?=$category['name']?> ( <?=$count?> )</a>
             <?php endif;?>
             <?php if($type=='type') :?>
                 <?php $flag=2;?>
@@ -98,7 +98,7 @@
                 <?php else:?>
                     <a class="btn btn-default" style="font-size: 15px;line-height:17px;width:100%;margin-left:0px;padding:5px;background-color: #009adb;color:#c4e3f3;"
                 <?php endif;?>
-                 href="/advanced/<?='0/0/'.$gen.'/'.$brand.'/0/'.$category['id'].'/'.$byprice?>#selectedcat"><?=$category['name']?> ( <?=$count?> )</a>
+                 href="/advanced/<?='0/0/'.$gen.'/'.$brand.'/0/'.$category['id'].'/'.$byprice.'/'.$product_type?>#selectedcat"><?=$category['name']?> ( <?=$count?> )</a>
             <?php endif;?>
         <?php endif;?>
 </li>

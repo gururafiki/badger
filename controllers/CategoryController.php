@@ -19,7 +19,7 @@ class CategoryController extends AppController {
         return $this->render('createTable');
     }
 
-    public function actionView($col,$spo,$gen,$brand,$size,$type,$byprice){
+    public function actionView($col,$spo,$gen,$brand,$size,$type,$byprice,$product_type){
         $byprice = Yii::$app->request->get('byprice');
         $col = Yii::$app->request->get('col');
         $spo = Yii::$app->request->get('spo');
@@ -27,12 +27,21 @@ class CategoryController extends AppController {
         $brand = Yii::$app->request->get('brand');
         $size = Yii::$app->request->get('size');
         $type = Yii::$app->request->get('type');
+        $product_type = Yii::$app->request->get('product_type');
         $where='id != 0';
         $where_selected='id = 0';
 
         if($col!=0){
             $where_selected.=' OR id = '.$col;
             $where.=' AND col_id = '.$col;
+        }
+        if(strlen($product_type)>1){
+            //создать категорию новинки и распродажа
+            //$where_selected.=' OR id = '.$spo;
+            if($product_type=='new')
+                $where.=' AND new = 1';
+            elseif($product_type=='sale')
+                $where.=' AND sale = 1';
         }
         if($spo!=0){
             $where_selected.=' OR id = '.$spo;
@@ -73,12 +82,12 @@ class CategoryController extends AppController {
 
         if($byprice==1){
             $query=Product::find()->where($where)->andwhere(['<>','photo', 'No photo yet'])->groupBy('photo')->orderBy('price_sell');
-            $pages= new Pagination(['totalCount' => $query->count(), 'pageSize' => 4,'forcePageParam' => false,'pageSizeParam' => false]);
+            $pages= new Pagination(['totalCount' => $query->count(), 'pageSize' => 3,'forcePageParam' => false,'pageSizeParam' => false]);
             $products = $query->offset($pages->offset)->limit($pages->limit)->all();
         }
         else{
             $query=Product::find()->where($where)->andwhere(['<>','photo', 'No photo yet'])->groupBy('photo');
-            $pages= new Pagination(['totalCount' => $query->count(), 'pageSize' => 4,'forcePageParam' => false,'pageSizeParam' => false]);
+            $pages= new Pagination(['totalCount' => $query->count(), 'pageSize' => 3,'forcePageParam' => false,'pageSizeParam' => false]);
             $products = $query->offset($pages->offset)->limit($pages->limit)->all();
         }
         
@@ -109,7 +118,7 @@ class CategoryController extends AppController {
     }
 
 
-    public function actionAdvanced($col,$spo,$gen,$brand,$size,$type,$byprice){
+    public function actionAdvanced($col,$spo,$gen,$brand,$size,$type,$byprice,$product_type){
         $byprice = Yii::$app->request->get('byprice');
         $col = Yii::$app->request->get('col');
         $spo = Yii::$app->request->get('spo');
@@ -117,6 +126,7 @@ class CategoryController extends AppController {
         $brand = Yii::$app->request->get('brand');
         $size = Yii::$app->request->get('size');
         $type = Yii::$app->request->get('type');
+        $product_type = Yii::$app->request->get('product_type');
         $where='id != 0';
         $where_selected='id = 0';
 
@@ -127,6 +137,14 @@ class CategoryController extends AppController {
         if($spo!=0){
             $where_selected.=' OR id = '.$spo;
             $where.=' AND sport_id ='.$spo;
+        }  
+        if(strlen($product_type)>1){
+            //создать категорию новинки и распродажа
+            //$where_selected.=' OR id = '.$spo;
+            if($product_type=='new')
+                $where.=' AND new = 1';
+            elseif($product_type=='sale')
+                $where.=' AND sale = 1';
         }
         if($type!=0){
             $true_type=Category::find()->where(['id' => $type])->andwhere(['describtion' => 'type'])->one();

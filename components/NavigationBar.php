@@ -128,7 +128,6 @@ class NavigationBar extends  Widget{
             $this->menuHtml = $this->menuHtml.$start.$this->getMenuHtml($this->tree,$gender_name,$gender_id,$brand_name,$brand_id,0,0).$end;
         }
         $this->menuHtml.=$last;
-
         return $this->menuHtml;
     }
 
